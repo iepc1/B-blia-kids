@@ -1,54 +1,97 @@
 body {
+  margin: 0;
   font-family: Arial;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
   text-align: center;
-  background: #dff6ff;
-}
-
-#menu button {
-  margin: 5px;
-  padding: 10px;
 }
 
 #topo {
+  background: rgba(0,0,0,0.3);
+  padding: 10px;
+}
+
+.tela {
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* HOME */
+.card {
+  background: white;
+  color: black;
+  padding: 20px;
   margin: 10px;
+  border-radius: 20px;
   font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* MAPA */
 #mapa {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.capitulo {
-  margin: 20px;
-}
-
-.fases {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .fase-btn {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  margin: 5px;
   border: none;
-  color: white;
+  background: #ffcc00;
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.fase-btn:disabled {
   background: gray;
 }
 
-.fase-btn.liberado {
-  background: green;
-}
-
-.fase-btn.concluido {
-  background: gold;
+/* GAME CARD */
+.game-card {
+  background: white;
   color: black;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 300px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.hidden {
-  display: none;
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  background: #ffcc00;
+  font-weight: bold;
+}
+
+/* MENU */
+#menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+}
+
+#menu button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  background: none;
+  font-size: 20px;
 }
