@@ -1,47 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bíblia Kids</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>📖 Bíblia Kids</h1>
-
-<div id="menu">
-  <button onclick="abrirTela('mapa')">🎮 Jogo</button>
-  <button onclick="abrirTela('biblia')">📖 Bíblia</button>
-  <button onclick="abrirTela('manga')">🎨 Mangá</button>
-</div>
-
 <div id="topo">
-  ⭐ <span id="pontos">0</span> | 👤 <span id="personagem">Noé</span>
+  <h1>📖 Bíblia Kids</h1>
+  <p>⚡ <span id="moedas">0</span></p>
 </div>
 
-<div id="mapa"></div>
-
-<div id="fase" class="hidden">
-  <h2 id="tituloFase"></h2>
-  <p>⏱️ Tempo: <span id="tempo">60</span></p>
-  <p id="pergunta"></p>
-  <div id="opcoes"></div>
+<!-- HOME -->
+<div id="home" class="tela">
+  <div class="card" onclick="abrirMapa()">🎮 Jogar</div>
+  <div class="card">📖 Bíblia</div>
+  <div class="card">🧠 Quiz</div>
+  <div class="card">👤 Personagem</div>
 </div>
 
-<div id="biblia" class="hidden">
-  <h2>📖 Bíblia Infantil</h2>
-  <img src="manga/1.jpg" width="250">
-  <p>Noé construiu uma arca para salvar os animais.</p>
+<!-- MAPA -->
+<div id="mapa" class="tela hidden"></div>
+
+<!-- FASE -->
+<div id="fase" class="tela hidden">
+
+  <div class="game-card">
+    <h2 id="tituloFase"></h2>
+
+    <h3 id="pergunta"></h3>
+
+    <input id="resposta" placeholder="Digite aqui...">
+
+    <p>⏱️ Tempo: <span id="tempo">60</span></p>
+
+    <button onclick="responder()">Responder</button>
+  </div>
+
 </div>
 
-<div id="manga" class="hidden">
-  <h2>🎨 Bíblia em Mangá</h2>
-  <img id="paginaManga" src="manga/1.jpg" width="300">
-  <br><br>
-  <button onclick="anterior()">⬅️</button>
-  <span id="numPagina">1</span>
-  <button onclick="proxima()">➡️</button>
+<!-- MENU -->
+<div id="menu">
+  <button onclick="mostrarTela('home')">🏠</button>
+  <button onclick="abrirMapa()">🗺️</button>
+  <button>📖</button>
+  <button>👤</button>
 </div>
 
 <script src="script.js"></script>
