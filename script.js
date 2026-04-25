@@ -1,5 +1,5 @@
-let progresso = JSON.parse(localStorage.getItem("progresso")) || {};
-let moedas = parseInt(localStorage.getItem("moedas")) || 0;
+let moedas = 0;
+let progresso = {};
 
 let capitulos = [
   { nome: "Éden", fases: 20 },
@@ -9,35 +9,24 @@ let capitulos = [
 ];
 
 let perguntas = [
-  { p: "Quem construiu a arca?", r: "Noé" },
-  { p: "Quem abriu o mar?", r: "Moisés" },
-  { p: "Quem derrotou Golias?", r: "Davi" },
-  { p: "Quem foi jogado na cova dos leões?", r: "Daniel" }
+  { p: "Quem construiu a arca?", r: "noé" },
+  { p: "Quem abriu o mar?", r: "moisés" },
+  { p: "Quem venceu Golias?", r: "davi" }
 ];
 
-let faseAtual = null;
-let tempo = 60;
-let timer;
-
-document.getElementById("moedas").innerText = moedas;
-
-function mostrarTela(tela) {
-  document.querySelectorAll(".tela").forEach(t => t.classList.add("hidden"));
-  document.getElementById(tela).classList.remove("hidden");
+function mostrarTela(t) {
+  document.querySelectorAll(".tela").forEach(x => x.classList.add("hidden"));
+  document.getElementById(t).classList.remove("hidden");
 }
 
 function abrirMapa() {
   mostrarTela("mapa");
-  criarMapa();
-}
-
-function criarMapa() {
   let mapa = document.getElementById("mapa");
   mapa.innerHTML = "";
 
-  capitulos.forEach((cap, cIndex) => {
+  capitulos.forEach((cap, c) => {
     let titulo = document.createElement("h3");
-    titulo.innerText = "Capítulo: " + cap.nome;
+    titulo.innerText = cap.nome;
     mapa.appendChild(titulo);
 
     for (let i = 1; i <= cap.fases; i++) {
@@ -45,10 +34,8 @@ function criarMapa() {
       btn.innerText = i;
       btn.className = "fase-btn";
 
-      let chave = cIndex + "-" + i;
-
-      if (i === 1 || progresso[cIndex + "-" + (i - 1)]) {
-        btn.onclick = () => abrirFase(cIndex, i);
+      if (i === 1 || progresso[c + "-" + (i - 1)]) {
+        btn.onclick = () => abrirFase(c, i);
       } else {
         btn.disabled = true;
       }
@@ -58,22 +45,23 @@ function criarMapa() {
   });
 }
 
-function abrirFase(cap, num) {
-  faseAtual = cap + "-" + num;
+let faseAtual;
+let tempo;
+let timer;
+
+function abrirFase(c, n) {
+  faseAtual = c + "-" + n;
   mostrarTela("fase");
 
-  document.getElementById("tituloFase").innerText =
-    capitulos[cap].nome + " - Fase " + num;
-
-  novaPergunta();
-  iniciarTempo();
-}
-
-function novaPergunta() {
   let q = perguntas[Math.floor(Math.random() * perguntas.length)];
+
+  document.getElementById("tituloFase").innerText =
+    capitulos[c].nome + " - " + n;
+
   document.getElementById("pergunta").innerText = q.p;
-  document.getElementById("resposta").value = "";
-  document.getElementById("resposta").dataset.correta = q.r;
+  document.getElementById("resposta").dataset.r = q.r;
+
+  iniciarTempo();
 }
 
 function iniciarTempo() {
@@ -87,28 +75,24 @@ function iniciarTempo() {
 
     if (tempo <= 0) {
       clearInterval(timer);
-      alert("⏱️ Tempo acabou!");
-      abrirMapa();
+      alert("Tempo acabou");
+      mostrarTela("home");
     }
   }, 1000);
 }
 
 function responder() {
   let user = document.getElementById("resposta").value.toLowerCase();
-  let correta = document.getElementById("resposta").dataset.correta.toLowerCase();
+  let r = document.getElementById("resposta").dataset.r;
 
-  if (user === correta) {
-    alert("⭐ Acertou!");
+  if (user === r) {
+    alert("Acertou!");
     progresso[faseAtual] = true;
     moedas += 10;
-
-    localStorage.setItem("moedas", moedas);
-    localStorage.setItem("progresso", JSON.stringify(progresso));
+    document.getElementById("moedas").innerText = moedas;
   } else {
-    alert("❌ Errou!");
+    alert("Errou!");
   }
 
-  clearInterval(timer);
-  document.getElementById("moedas").innerText = moedas;
-  abrirMapa();
-      }
+  mostrarTela("mapa");
+}
