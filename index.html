@@ -15,10 +15,27 @@
 
 <!-- HOME -->
 <div id="home" class="tela">
-  <div class="card" onclick="abrirMapa()">🎮 Jogar</div>
-  <div class="card">📖 Bíblia</div>
-  <div class="card">🧠 Quiz</div>
-  <div class="card">👤 Personagem</div>
+
+  <div class="banner azul" onclick="abrirMapa()">
+    <h2>🎮 Jogar</h2>
+    <p>Modo aventura</p>
+  </div>
+
+  <div class="banner verde">
+    <h2>📖 Bíblia</h2>
+    <p>Histórias</p>
+  </div>
+
+  <div class="banner roxo">
+    <h2>🧠 Quiz</h2>
+    <p>Desafios</p>
+  </div>
+
+  <div class="banner laranja">
+    <h2>👤 Personagem</h2>
+    <p>Customizar</p>
+  </div>
+
 </div>
 
 <!-- MAPA -->
@@ -29,24 +46,15 @@
 
   <div class="game-card">
     <h2 id="tituloFase"></h2>
-
     <h3 id="pergunta"></h3>
 
-    <input id="resposta" placeholder="Digite aqui...">
+    <input id="resposta" placeholder="Digite a resposta">
 
-    <p>⏱️ Tempo: <span id="tempo">60</span></p>
+    <p>⏱️ <span id="tempo">60</span></p>
 
     <button onclick="responder()">Responder</button>
   </div>
 
-</div>
-
-<!-- MENU -->
-<div id="menu">
-  <button onclick="mostrarTela('home')">🏠</button>
-  <button onclick="abrirMapa()">🗺️</button>
-  <button>📖</button>
-  <button>👤</button>
 </div>
 
 <script src="script.js"></script>
