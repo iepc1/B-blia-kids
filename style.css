@@ -1,0 +1,54 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #dff6ff;
+}
+
+#menu button {
+  margin: 5px;
+  padding: 10px;
+}
+
+#topo {
+  margin: 10px;
+  font-size: 18px;
+}
+
+#mapa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.capitulo {
+  margin: 20px;
+}
+
+.fases {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fase-btn {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  background: gray;
+}
+
+.fase-btn.liberado {
+  background: green;
+}
+
+.fase-btn.concluido {
+  background: gold;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
