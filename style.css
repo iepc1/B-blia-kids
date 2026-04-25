@@ -1,34 +1,36 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  background: #0f172a;
   color: white;
-  text-align: center;
 }
 
 #topo {
-  background: rgba(0,0,0,0.3);
+  text-align: center;
   padding: 10px;
+  background: #1e293b;
 }
 
 .tela {
-  padding: 20px;
+  padding: 15px;
 }
 
 .hidden {
   display: none;
 }
 
-/* HOME */
-.card {
-  background: white;
-  color: black;
-  padding: 20px;
-  margin: 10px;
+/* BANNERS */
+.banner {
   border-radius: 20px;
-  font-size: 18px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  margin: 10px 0;
 }
+
+/* CORES */
+.azul { background: linear-gradient(135deg,#3b82f6,#06b6d4); }
+.verde { background: linear-gradient(135deg,#22c55e,#4ade80); }
+.roxo { background: linear-gradient(135deg,#9333ea,#c084fc); }
+.laranja { background: linear-gradient(135deg,#f97316,#fb923c); }
 
 /* MAPA */
 #mapa {
@@ -40,19 +42,13 @@ body {
 .fase-btn {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
   margin: 5px;
+  border-radius: 50%;
   border: none;
-  background: #ffcc00;
-  font-weight: bold;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  background: gold;
 }
 
-.fase-btn:disabled {
-  background: gray;
-}
-
-/* GAME CARD */
+/* JOGO */
 .game-card {
   background: white;
   color: black;
@@ -60,38 +56,10 @@ body {
   border-radius: 20px;
   max-width: 300px;
   margin: auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 input {
   width: 90%;
   padding: 10px;
   margin: 10px;
-  border-radius: 10px;
-  border: none;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 15px;
-  background: #ffcc00;
-  font-weight: bold;
-}
-
-/* MENU */
-#menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: white;
-  display: flex;
-}
-
-#menu button {
-  flex: 1;
-  padding: 15px;
-  border: none;
-  background: none;
-  font-size: 20px;
 }
